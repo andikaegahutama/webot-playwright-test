@@ -18,12 +18,12 @@ export const warehouse: Warehouse[] = [
     warehouseType: "EDM",
     tag: "EDN",
   },
-  {
-    id: "7373657a-7ac7-4645-9ece-3e8605fe1af9",
-    name: "Gudang Ethix Medan",
-    warehouseType: "EDX",
-    tag: "Gudang Ethix",
-  },
+  // {
+  //   id: "7373657a-7ac7-4645-9ece-3e8605fe1af9",
+  //   name: "Gudang Ethix Medan",
+  //   warehouseType: "EDX",
+  //   tag: "Gudang Ethix",
+  // },
   {
     id: "b80b99d8-9f8d-4174-b505-b1a1d42af21d",
     name: "Gudang Ethix Sampang",
