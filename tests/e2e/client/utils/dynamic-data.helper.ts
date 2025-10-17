@@ -1,7 +1,7 @@
 import { fakerID_ID as faker } from "@faker-js/faker";
 import { dataHelper } from "./randomizer.helper";
 import { team } from "../data/teams.data";
-import { advertiser } from "../data/advertiser.data";
+import { advertiser } from "../data/advertisers.data";
 import { platform } from "../data/platforms.data";
 
 const indoPrefixes = [
