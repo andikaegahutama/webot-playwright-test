@@ -1,6 +1,7 @@
 import { type Page, expect } from "@playwright/test";
 import { roles } from "../data/roles.data";
 import { LoginPage } from "../pages/login.page";
+import { waitForAPIResponse } from "./api.helper";
 
 type RoleName = "CS" | "CRM" | "ADV" | "HO_CS" | "HO_CRM" | "HO_ADV";
 
@@ -15,6 +16,7 @@ export async function loginAsRole(page: Page, roleName: RoleName) {
   await loginPage.navigateTo();
   await loginPage.login(roleData.email, roleData.password);
 
+  await waitForAPIResponse(page, "/user/me", 200);
   await expect(page.getByText(roleData.username)).toBeVisible({
     timeout: 30000,
   });

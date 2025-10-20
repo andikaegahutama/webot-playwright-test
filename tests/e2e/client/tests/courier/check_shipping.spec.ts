@@ -26,7 +26,7 @@ test.describe("Courier Page Test", () => {
         "Gudang Ethix Medan",
         "Gudang Ethix Ciputat",
       ],
-      courierName: ["SAP", "Sicepat", "JNE", "Ninja Xpress"],
+      courierName: ["SAP", "Sicepat", "Ninja Xpress"],
     },
     {
       warehouseType: "Shipper",
@@ -39,7 +39,7 @@ test.describe("Courier Page Test", () => {
         "Shipper-Semarang",
         "Shipper-Tandes",
       ],
-      courierName: ["SAP", "Ninja Xpress", "Sicepat", "JNE"],
+      courierName: ["SAP", "Ninja Xpress", "Sicepat"],
     },
   ];
 

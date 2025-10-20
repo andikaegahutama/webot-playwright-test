@@ -32,6 +32,7 @@ export class CourierPage {
     const warehouseOption = this.page.getByText(warehouseName, { exact: true });
     await warehouseOption.click();
   }
+
   async fillTerritory(territory: string, fullSelectionText: string) {
     await this.territoryInput.click();
     await this.page.locator("#react-select-5-input").fill(territory);

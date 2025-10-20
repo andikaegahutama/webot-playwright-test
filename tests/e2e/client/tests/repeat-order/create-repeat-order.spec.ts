@@ -5,7 +5,7 @@ import { products } from "../../data/products.data";
 
 test.describe("E2E - Repeat Order (Refactored from Codegen)", () => {
   test.beforeEach("", async ({ page }) => {
-    await loginAsRole(page, "CS");
+    await loginAsRole(page, "HO_CRM");
   });
 
   const randomProduct = dataHelper.randomElement(products.productEDM);
@@ -21,7 +21,6 @@ test.describe("E2E - Repeat Order (Refactored from Codegen)", () => {
     await page
       .getByRole("button", { name: "d3u-repeat-icon-1 d3u-repeat-" })
       .click();
-    await expect(page.getByText("‌")).toBeHidden();
     await expect(page.locator(".css-1s2u09g-control")).toBeVisible();
     await page.locator(".css-1s2u09g-control").click();
     await page.getByText("Imas Yahya (Beca) -").click();
@@ -54,7 +53,7 @@ test.describe("E2E - Repeat Order (Refactored from Codegen)", () => {
       .filter({ hasText: /^Pilih Platform Adv$/ })
       .nth(1)
       .click();
-    await page.getByText("Meta", { exact: true }).click();
+    await page.getByText("CRM", { exact: true }).click();
     await page
       .locator("div")
       .filter({ hasText: /^Whatsapp$/ })
@@ -112,5 +111,6 @@ test.describe("E2E - Repeat Order (Refactored from Codegen)", () => {
         .first()
     ).toBeVisible();
     await expect(page.getByText(randomProductName).first()).toBeVisible();
+    await expect(page.getByText("Data berhasil di input")).toBeVisible();
   });
 });

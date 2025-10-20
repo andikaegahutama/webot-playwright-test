@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { loginAsRole } from "../../utils/auth.helper";
+import { waitForAPIResponse } from "../../utils/api.helper";
 
 test.describe(() => {
   test("should showing popup double order", async ({ page }) => {
@@ -20,7 +21,7 @@ test.describe(() => {
       .filter({ hasText: /^Pilih Alamat$/ })
       .nth(1)
       .click();
-    await expect(page.getByText("Loading...")).toBeHidden();
+    await waitForAPIResponse(page, "/address", 200);
     await page
       .locator("div")
       .filter({
