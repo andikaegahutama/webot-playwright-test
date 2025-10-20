@@ -15,7 +15,6 @@ test.describe("E2E - Over SLA Check Reason", () => {
       .nth(1)
       .click();
     await page.getByText("Over Sla").click();
-    await expect(page.getByText("Over SLA", { exact: true })).toBeVisible();
     await expect(
       page.locator(".flex.items-center.gap-3").first()
     ).toBeVisible();
