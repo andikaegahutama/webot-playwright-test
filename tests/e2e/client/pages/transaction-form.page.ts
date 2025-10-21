@@ -17,14 +17,12 @@ export class TransactionFormPage {
     this.modalValidation = page.locator("div");
     this.yesModalButton = page.getByRole("button", { name: "Yes" });
     this.nextModalButton = page.getByRole("button", { name: "Lanjutkan" });
-    this.warehouseInput = page
-      .locator("div")
-      .filter({ hasText: /^Pilih Warehouse$/ })
-      .nth(1);
-    this.courierInput = page
-      .locator("div")
-      .filter({ hasText: /^Pilih Courier$/ })
-      .nth(1);
+    this.warehouseInput = page.locator(
+      "#productWarehouseInput > .css-1s2u09g-control > .css-1d8n9bt > .css-ackcql"
+    );
+    this.courierInput = page.locator(
+      "#productCourierInput > .css-1s2u09g-control > .css-1d8n9bt > .css-ackcql"
+    );
     this.reviewButton = page.getByRole("button", { name: "Review" });
     this.publishButton = page.getByRole("button", { name: "Publish" });
   }
@@ -56,12 +54,12 @@ export class TransactionFormPage {
 
   async selectWarehouse(warehouseName: string) {
     await this.warehouseInput.click();
-    await this.page.getByText(warehouseName).click();
+    await this.page.getByText(warehouseName, { exact: true }).click();
   }
 
   async selectCourier(courierName: RegExp) {
     await this.courierInput.click();
-    await this.page.getByText(courierName).click();
+    await this.page.getByText(courierName, { exact: true }).click();
   }
 
   async clickReviewButton() {
