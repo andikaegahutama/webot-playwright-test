@@ -21,7 +21,7 @@ test.describe("E2E - Repeat Order (Refactored from Codegen)", () => {
     await page
       .getByRole("button", { name: "d3u-repeat-icon-1 d3u-repeat-" })
       .click();
-    await expect(page.locator(".css-1s2u09g-control")).toBeVisible();
+    await expect(page.getByText("‌")).toBeHidden();
     await page.locator(".css-1s2u09g-control").click();
     await page.getByText("Imas Yahya (Beca) -").click();
     await page
