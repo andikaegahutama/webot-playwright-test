@@ -1,14 +1,12 @@
 import { test, expect } from "@playwright/test";
-import { mockApi } from "../../utils/mocks.helper";
-import { TransactionFormPage } from "../../../admin/pages/transaction-form.page";
-import { loginAsRole } from "../../utils/auth.helper";
+import { loginAsRole } from "../../../utils/auth.helper";
+import { mockApi } from "../../../utils/mocks.helper";
 
 test.describe(() => {
   test.beforeEach("", async ({ page }) => {
     await loginAsRole(page, "CS");
   });
-  test("test", async ({ page }) => {
-    const transactionFormPage = new TransactionFormPage(page);
+  test("should successfully show popup double order", async ({ page }) => {
     await page
       .locator("div")
       .filter({ hasText: /^HomeTransaksiKendalaProfile$/ })

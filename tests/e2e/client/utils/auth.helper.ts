@@ -16,7 +16,6 @@ export async function loginAsRole(page: Page, roleName: RoleName) {
   await loginPage.navigateTo();
   await loginPage.login(roleData.email, roleData.password);
 
-  await waitForAPIResponse(page, "/user/me", 200);
   await expect(page.getByText(roleData.username)).toBeVisible({
     timeout: 30000,
   });
