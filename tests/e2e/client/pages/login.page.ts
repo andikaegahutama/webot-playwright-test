@@ -20,7 +20,7 @@ export class LoginPage {
   }
 
   async navigateTo() {
-    await this.page.goto("/");
+    await this.page.goto("v2/auth/login");
   }
 
   async login(email: string, password: string) {

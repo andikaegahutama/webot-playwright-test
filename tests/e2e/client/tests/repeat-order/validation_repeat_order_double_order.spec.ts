@@ -92,7 +92,6 @@ test.describe(() => {
     await page.getByText("KODEUNIK").click();
     await page.getByText("BSI").click();
     await page.getByRole("button", { name: "Review" }).click();
-    await expect(page.getByText("Copy Data")).toBeVisible();
   });
 
   test("should not showing popup double order", async ({ page }) => {

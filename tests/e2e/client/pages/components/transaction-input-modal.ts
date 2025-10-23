@@ -10,7 +10,7 @@ export class TransactionInputModal {
 
   constructor(page: Page) {
     this.page = page;
-    this.modalTitle = page.getByRole("heading", { name: "Web Order Input" });
+    this.modalTitle = page.getByText("Web Order Input");
     this.templateTextArea = page.locator("#weborderCreateExtractInput");
     this.submitButton = page.getByRole("button", { name: "Submit" });
     this.cancelButton = page.getByRole("button", { name: "Cancel" });

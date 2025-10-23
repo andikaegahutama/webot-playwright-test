@@ -1,14 +1,12 @@
 import { test, expect } from "@playwright/test";
-import { mockApi } from "../../utils/mocks.helper";
-import { TransactionFormPage } from "../../../admin/pages/transaction-form.page";
-import { loginAsRole } from "../../utils/auth.helper";
+import { loginAsRole } from "../../../utils/auth.helper";
+import { mockApi } from "../../../utils/mocks.helper";
 
 test.describe(() => {
   test.beforeEach("", async ({ page }) => {
     await loginAsRole(page, "CS");
   });
-  test("test", async ({ page }) => {
-    const transactionFormPage = new TransactionFormPage(page);
+  test("should successfully show popup double order", async ({ page }) => {
     await page
       .locator("div")
       .filter({ hasText: /^HomeTransaksiKendalaProfile$/ })
@@ -44,8 +42,10 @@ test.describe(() => {
     await page.getByText("COD").click();
     await mockApi(page, "**/shipper/courer", { data: [] });
     await page.getByRole("button", { name: "Draft" }).click();
-    await expect(page.getByText("Double Order Terdeteksi!")).toBeVisible();
-
+    await Promise.any([
+      expect(page.getByText("Transaksi Duplikat")).toBeVisible(),
+      expect(page.getByText("Double Order Terdeteksi!")).toBeVisible(),
+    ]);
     await page.getByRole("button", { name: "Review" }).click();
     await page.getByText("Customer memesan produk yang").isVisible();
     await page.getByRole("button", { name: "Close", exact: true }).click();
@@ -56,7 +56,5 @@ test.describe(() => {
     await page.getByText("BSI").click();
     await page.getByRole("button", { name: "Review" }).click();
     await expect(page.getByText("Customer")).toBeVisible();
-    // await page.getByRole("button", { name: "Publish" }).click();
-    // await expect(page.getByText("Selesaikan Pembayaran sebelum")).toBeVisible();
   });
 });

@@ -57,7 +57,7 @@ export class TransactionFormPage {
     await this.page.getByText(warehouseName, { exact: true }).click();
   }
 
-  async selectCourier(courierName: RegExp) {
+  async selectCourier(courierName: RegExp | string) {
     await this.courierInput.click();
     await this.page.getByText(courierName, { exact: true }).click();
   }
